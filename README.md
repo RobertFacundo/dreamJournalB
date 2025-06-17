@@ -44,6 +44,6 @@ Welcome to the **Dream Journal** backend — an app where users can log, view, a
 
 Created by **Facundo Robert** – [GitHub](https://github.com/RobertFacundo)  
 
-Feel free to reach out for collaboration or feedback!
+Feel free to reach out for collaboration or feedback!!
 
 ----
