@@ -49,6 +49,6 @@ export class AuthService {
   async getMe(userId: number) {
     const user = await this.usersRepo.findOne({ where: { id: userId } });
     if (!user) throw new UnauthorizedException('user not found');
-    return { id: user.id, username: user.username }
+    return user;
   }
 }

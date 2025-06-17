@@ -15,6 +15,9 @@ export class User {
     @CreateDateColumn()
     createdAt: Date;
 
+    @Column({ default: false })
+    hasSeenWelcomeModal: boolean;
+
     @OneToMany(() => Dream, dream => dream.user)
     dreams: Dream[];
 }
