@@ -42,7 +42,7 @@ export class AuthService {
     const payload = { sub: user.id };
     return {
       acces_token: this.jwtService.sign(payload),
-      user: { id: user.id, username: user.username },
+      user: { id: user.id, username: user.username, hasSeenWelcomeModal: user.hasSeenWelcomeModal },
     };
   }
 
@@ -50,5 +50,19 @@ export class AuthService {
     const user = await this.usersRepo.findOne({ where: { id: userId } });
     if (!user) throw new UnauthorizedException('user not found');
     return user;
+  }
+
+  async updateUser(userId: number, updateData: Partial<User>) {
+    const user = await this.usersRepo.findOne({ where: { id: userId } });
+    if (!user) throw new UnauthorizedException('user not found');
+
+    Object.assign(user, updateData);
+    await this.usersRepo.save(user);
+
+    return {
+      id: user.id,
+      username: user.username,
+      hasSeenWelcomeModal: user.hasSeenWelcomeModal,
+    }
   }
 }
