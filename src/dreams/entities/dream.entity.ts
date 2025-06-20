@@ -6,9 +6,6 @@ export class Dream {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    title: string;
-
     @Column('text')
     content: string;
 

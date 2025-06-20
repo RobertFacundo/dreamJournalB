@@ -1,8 +1,9 @@
 import { IsBoolean, IsInt, IsOptional, IsString, IsDateString } from 'class-validator';
 
 export class CreateDreamDto {
+    @IsOptional()
     @IsString()
-    title: string;
+    title?: string;
 
     @IsString()
     content: string;
